@@ -3,26 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Valentine's Day</title>
+    <title>Valentine's Day</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f8f8;
-            color: #333;
+            background-color: #fff;
             text-align: center;
+            position: relative;
         }
         .heart {
-            color: red;
-            font-size: 100px;
+            width: 100px;
+            height: 100px;
+            background-color: #ff5c5c;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            animation: float 3s ease infinite;
+        }
+        .heart::before,
+        .heart::after {
+            content: '';
+            width: 100px;
+            height: 100px;
+            background-color: #ff5c5c;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .heart::before {
+            top: -50px;
+            left: 0;
+        }
+        .heart::after {
+            left: 50px;
+            top: 0;
+        }
+        @keyframes float {
+            0% { transform: translate(-50%, -50%) translateY(0); }
+            50% { transform: translate(-50%, -50%) translateY(-20px); }
+            100% { transform: translate(-50%, -50%) translateY(0); }
         }
     </style>
 </head>
 <body>
-    <h1>Happy Valentine's Day!</h1>
-    <div class="heart">❤️</div>
-    <p>Wishing you a day filled with love and joy!</p>
-    <footer>
-        <p>&copy; 2026 My Love</p>
-    </footer>
+    <div class="heart"></div>
+    <h1>Will you be my Valentine?</h1>
+    <p><strong>Kaitlyn's Question:</strong> "Do you love me?"</p>
+    <button onclick="respond('yes')">YES</button>
+    <button onclick="respond('no')">NO</button>
+    <script>
+        function respond(answer) {
+            if (answer === 'yes') {
+                alert('Yay! Let’s celebrate love! ❤️');
+            } else {
+                alert('Oh no! Maybe next time. 😢');
+            }
+        }
+    </script>
 </body>
 </html>
